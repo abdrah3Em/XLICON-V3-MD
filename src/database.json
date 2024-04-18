@@ -1,5 +1,8 @@
 {
-  "users": [],
+  "users": [
+    "2348154012846@s.whatsapp.net",
+    "2349058659656@s.whatsapp.net"
+  ],
   "database": {},
   "chats": {
     "2349058659656@s.whatsapp.net": {
@@ -127,6 +130,24 @@
       "anticontact": false,
       "antilink": false,
       "antilinkgc": false
+    },
+    "120363285840432975@g.us": {
+      "badword": false,
+      "antiforeignnum": false,
+      "antibot": false,
+      "antiviewonce": false,
+      "antivirtex": false,
+      "antimedia": false,
+      "antiimage": false,
+      "antivideo": false,
+      "antiaudio": false,
+      "antipoll": false,
+      "antisticker": false,
+      "antilocation": false,
+      "antidocument": false,
+      "anticontact": false,
+      "antilink": false,
+      "antilinkgc": false
     }
   },
   "game": {
@@ -162,7 +183,39 @@
           "alias": "2349058659656"
         }
       }
+    },
+    "2348154012846@s.whatsapp.net": {
+      "totalhit": 229,
+      "totalError": 0,
+      "online": false,
+      "autosticker": false,
+      "autobio": false,
+      "autoread": false,
+      "autoblocknum": false,
+      "onlyindia": false,
+      "onlyindo": false,
+      "onlygrub": false,
+      "onlypc": false,
+      "autorecordtype": false,
+      "autorecord": false,
+      "autotype": false,
+      "watermark": {
+        "packname": "𝐗𝐋𝐈𝐂𝐎𝐍-𝐕𝟑",
+        "author": "ᗰᗩᗪE ᗷY 𝙎𝘼𝙇𝙈𝘼𝙉 𝘼𝙃𝙈𝘼𝘿"
+      },
+      "about": {
+        "bot": {
+          "nick": "Abdraheem",
+          "alias": "Zero-two"
+        },
+        "owner": {
+          "nick": "Abdraheem",
+          "alias": "2349058659656"
+        }
+      }
     }
+
+
   },
   "message": {},
   "sticker": {},
