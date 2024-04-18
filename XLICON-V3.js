@@ -2848,6 +2848,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
       case "nsfw":
         {
           if (!m.isGroup) return XeonStickGroup();
+          if (!XeonTheCreator) return XliconStickOwner();
           if (args[0] === "on") {
             if (AntiNsfw) return replygcXlicon("*_Already activated_*");
             ntnsfw.push(from);
@@ -3261,6 +3262,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
         }, timer);
         break;
       case "kick":
+        if (!XeonTheCreator) return XliconStickOwner();
         let blockwww = m.mentionedJid[0]
           ? m.mentionedJid[0]
           : m.quoted
@@ -3638,6 +3640,7 @@ https://chat.whatsapp.com/${response}`;
       case "setgruppp":
       case "setgcpp":
         if (!m.isGroup) return XeonStickGroup();
+        if (!XeonTheCreator) return XliconStickOwner();
         if (!quoted)
           return replygcXlicon(
             `Send/Reply Image With Caption ${prefix + command}`
@@ -3686,6 +3689,7 @@ https://chat.whatsapp.com/${response}`;
       case "tagall":
       case "tag":
         if (!m.isGroup) return XeonStickGroup();
+        if (!XeonTheCreator) return XliconStickOwner();
         let me = m.sender;
         let teks = `Tag All\n😶 *Tagger :*  @${
           me.split("@")[0]
@@ -3706,6 +3710,7 @@ https://chat.whatsapp.com/${response}`;
         break;
       case "hidetag":
         if (!m.isGroup) return XeonStickGroup();
+        if (!XeonTheCreator) return XliconStickOwner();
         XliconBotInc.sendMessage(
           m.chat,
           {
@@ -3719,6 +3724,7 @@ https://chat.whatsapp.com/${response}`;
         break;
       case "totag":
         if (!m.isGroup) return XeonStickGroup();
+        if (!XeonTheCreator) return XliconStickOwner();
         if (!m.quoted)
           return replygcXlicon(`Reply media with caption ${prefix + command}`);
         XliconBotInc.sendMessage(m.chat, {

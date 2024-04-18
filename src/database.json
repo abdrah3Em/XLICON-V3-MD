@@ -1,14 +1,6 @@
 {
-  "sticker": {},
-  "database": {},
-  "game": {
-    "math": []
-  },
-  "others": {
-    "vote": []
-  },
   "users": [],
-  
+  "database": {},
   "chats": {
     "2349058659656@s.whatsapp.net": {
       "badword": false,
@@ -81,11 +73,68 @@
       "anticontact": false,
       "antilink": false,
       "antilinkgc": false
+    },
+    "2349128736863@s.whatsapp.net": {
+      "badword": false,
+      "antiforeignnum": false,
+      "antibot": false,
+      "antiviewonce": false,
+      "antivirtex": false,
+      "antimedia": false,
+      "antiimage": false,
+      "antivideo": false,
+      "antiaudio": false,
+      "antipoll": false,
+      "antisticker": false,
+      "antilocation": false,
+      "antidocument": false,
+      "anticontact": false,
+      "antilink": false,
+      "antilinkgc": false
+    },
+    "2348154012846@s.whatsapp.net": {
+      "badword": false,
+      "antiforeignnum": false,
+      "antibot": false,
+      "antiviewonce": false,
+      "antivirtex": false,
+      "antimedia": false,
+      "antiimage": false,
+      "antivideo": false,
+      "antiaudio": false,
+      "antipoll": false,
+      "antisticker": false,
+      "antilocation": false,
+      "antidocument": false,
+      "anticontact": false,
+      "antilink": false,
+      "antilinkgc": false
+    },
+    "120363041306696492@g.us": {
+      "badword": false,
+      "antiforeignnum": false,
+      "antibot": false,
+      "antiviewonce": false,
+      "antivirtex": false,
+      "antimedia": false,
+      "antiimage": false,
+      "antivideo": false,
+      "antiaudio": false,
+      "antipoll": false,
+      "antisticker": false,
+      "antilocation": false,
+      "antidocument": false,
+      "anticontact": false,
+      "antilink": false,
+      "antilinkgc": false
     }
+  },
+  "game": {
+    "math": []
   },
   "settings": {
     "2349058659656@s.whatsapp.net": {
-      "totalhit": 159,
+      "totalhit": 229,
       "totalError": 0,
       "online": false,
       "autosticker": false,
@@ -115,5 +164,9 @@
       }
     }
   },
-  "message": {}
+  "message": {},
+  "sticker": {},
+  "others": {
+    "vote": []
+  }
 }

@@ -50,7 +50,7 @@
      "GL_VIP": {
       "description": "Enter Premium Members Numbers [ Each Saperated By Comma ]",
       "required": false,
-      "value": "2349058659656"
+      "value": "2349058659656,2348154012856 "
      },
     "WELCOME_MSG": {
       "description": "Welcome Message True/False",
