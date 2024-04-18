@@ -2459,9 +2459,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
         break;
       case "autosticker":
       case "autostickergc":
-        if (!m.isGroup) return XeonStickGroup();
-        if (!isBotAdmins) return XliconStickBotAdmin();
-        if (!isAdmins && !XeonTheCreator) return XliconStickAdmin();
         if (args.length < 1)
           return replygcXlicon(`*_Example ${prefix + command} on/off_*`);
         if (q == "on") {
@@ -2826,8 +2823,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
       case "antitoxic":
         {
           if (!m.isGroup) return XeonStickGroup();
-          if (!isBotAdmins) return XliconStickBotAdmin();
-          if (!isAdmins && !XeonTheCreator) return XliconStickAdmin();
           if (args.length < 1) return replygcXlicon("*_on/off?_*");
           if (args[0] === "on") {
             db.data.chats[from].badword = true;
@@ -2853,8 +2848,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
       case "nsfw":
         {
           if (!m.isGroup) return XeonStickGroup();
-          if (!isBotAdmins) return XliconStickBotAdmin();
-          if (!isAdmins && !XeonTheCreator) return XliconStickAdmin();
           if (args[0] === "on") {
             if (AntiNsfw) return replygcXlicon("*_Already activated_*");
             ntnsfw.push(from);
@@ -3268,12 +3261,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
         }, timer);
         break;
       case "kick":
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         let blockwww = m.mentionedJid[0]
           ? m.mentionedJid[0]
           : m.quoted
@@ -3526,9 +3513,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
         break;
       case "promote":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         let blockwwwww = m.mentionedJid[0]
           ? m.mentionedJid[0]
           : m.quoted
@@ -3543,9 +3527,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
         break;
       case "demote":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         let blockwwwwwa = m.mentionedJid[0]
           ? m.mentionedJid[0]
           : m.quoted
@@ -3561,9 +3542,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
       case "setnamegc":
       case "setsubject":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         if (!text) return replygcXlicon("*_Text ?_*");
         await XliconBotInc.groupUpdateSubject(m.chat, text);
         replygcXlicon(mess.done);
@@ -3632,8 +3610,6 @@ https://chat.whatsapp.com/${response}`;
       case "delppgroup":
         {
           if (!m.isGroup) return XeonStickGroup();
-          if (!isAdmins && !XeonTheCreator) return XliconStickAdmin();
-          if (!isBotAdmins) return XliconStickBotAdmin();
           await XliconBotInc.removeProfilePicture(from);
         }
         break;
@@ -3662,8 +3638,6 @@ https://chat.whatsapp.com/${response}`;
       case "setgruppp":
       case "setgcpp":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins) return replygcXlicon(mess.admin);
-        if (!isBotAdmins) return XliconStickBotAdmin();
         if (!quoted)
           return replygcXlicon(
             `Send/Reply Image With Caption ${prefix + command}`
@@ -3712,20 +3686,17 @@ https://chat.whatsapp.com/${response}`;
       case "tagall":
       case "tag":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         let me = m.sender;
-        let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«╝\n😶 *Tagger :*  @${
+        let teks = `Tag All\n😶 *Tagger :*  @${
           me.split("@")[0]
-        }\n🌿 *Message : ${q ? q : "no message"}*\n\n`;
+        }\n *Message : ${q ? q : "no message"}*\n\n`;
         for (let mem of participants) {
           teks += `${themeemoji} @${mem.id.split("@")[0]}\n`;
         }
         XliconBotInc.sendMessage(
           m.chat,
           {
-            text: teks,
+            text: "tagall",
             mentions: participants.map((a) => a.id),
           },
           {
@@ -3735,9 +3706,6 @@ https://chat.whatsapp.com/${response}`;
         break;
       case "hidetag":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         XliconBotInc.sendMessage(
           m.chat,
           {
@@ -3751,8 +3719,6 @@ https://chat.whatsapp.com/${response}`;
         break;
       case "totag":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isBotAdmins) return XliconStickBotAdmin();
-        if (!isAdmins) return replygcXlicon(mess.admin);
         if (!m.quoted)
           return replygcXlicon(`Reply media with caption ${prefix + command}`);
         XliconBotInc.sendMessage(m.chat, {
@@ -3805,9 +3771,6 @@ https://chat.whatsapp.com/${response}`;
       case "grouplink":
       case "gruplink":
         if (!m.isGroup) return XeonStickGroup();
-        if (!isAdmins && !isGroupOwner && !XeonTheCreator)
-          return XliconStickAdmin();
-        if (!isBotAdmins) return XliconStickBotAdmin();
         let response = await XliconBotInc.groupInviteCode(m.chat);
         XliconBotInc.sendText(
           m.chat,
@@ -11519,11 +11482,9 @@ ${listAdmin}
           let mot = pickRandom(["⌬", "⏣", "❐", "❑", "➛", "✧", "✯"]);
           let xmenu_oh = `
 ┌─❖
-│ *_Hi_* _Senpai_ 👋 
+│ *_YO_*
 └┬❖  ${pushname} 
- ✑  ${xeonytimewisher} 😄 
-  └────────────┈ ▱╼❲⭐❳
-${readmore}
+
 
  ⏤͟͟͞͞★ 𝐁𝐎𝐓 𝐔𝐒𝐄𝐑 ꗄ➺
  
@@ -11585,7 +11546,6 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                image: fs.readFileSync("./XliconMedia/theme/xliconpic.jpg"),
                 caption: xmenu_oh,
               },
               {
@@ -11620,7 +11580,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+  
                 caption: xmenu_oh,
               },
               {
@@ -11745,7 +11705,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                image: fs.readFileSync("./XliconMedia/theme/xliconpic.jpg"),
+
                 caption: xmenu_oh,
               },
               {
@@ -11780,7 +11740,6 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
                 caption: xmenu_oh,
               },
               {
@@ -11932,7 +11891,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+       
                 caption: xmenu_oh,
               },
               {
@@ -12084,7 +12043,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+       
                 caption: xmenu_oh,
               },
               {
@@ -12237,7 +12196,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+          
                 caption: xmenu_oh,
               },
               {
@@ -12389,7 +12348,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+           
                 caption: xmenu_oh,
               },
               {
@@ -12541,7 +12500,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+
                 caption: xmenu_oh,
               },
               {
@@ -12693,7 +12652,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+             
                 caption: xmenu_oh,
               },
               {
@@ -12845,7 +12804,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+          
                 caption: xmenu_oh,
               },
               {
@@ -12997,7 +12956,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -13149,7 +13108,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -13302,7 +13261,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -13454,7 +13413,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -13606,7 +13565,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -13758,7 +13717,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -13910,7 +13869,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -14062,7 +14021,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -14214,7 +14173,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {
@@ -14366,7 +14325,7 @@ ${mot} 𝗗𝗮𝘁𝗲 : ${xdate}
             XliconBotInc.sendMessage(
               m.chat,
               {
-                video: fs.readFileSync("./XliconMedia/theme/xliconvid.mp4"),
+              
                 caption: xmenu_oh,
               },
               {

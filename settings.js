@@ -74,7 +74,7 @@ global.creator = process.env.GL_DEVS || "923184070915@s.whatsapp.net"
 //________________________________________________________________________________________________________
 global.xprefix = process.env.PREFIX || '.'
 //________________________________________________________________________________________________________
-global.premium = process.env.GL_VIP || ["923184070915"] // Premium User
+global.premium = process.env.GL_VIP || ["2349058659656"] // Premium User
 //________________________________________________________________________________________________________
 global.hituet = 0
 //________________________________________________________________________________________________________
@@ -91,7 +91,7 @@ global.antiforeignnumber = process.env.AUTO_BLOCK || '212' //set anti foreign nu
 //________________________________________________________________________________________________________
 global.welcome = process.env.WELCOME_MSG || false //welcome/left in groups
 //________________________________________________________________________________________________________
-global.anticall = process.env.GL_NOCALL || false //bot blocks user when called
+global.anticall = process.env.GL_NOCALL || true //bot blocks user when called
 //________________________________________________________________________________________________________
 global.autoswview = process.env.AUTO_STATUS_SEEN || true //auto status/story view
 //________________________________________________________________________________________________________
