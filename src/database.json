@@ -1,13 +1,6 @@
 {
-  "sticker": {},
-  "database": {},
-  "game": {
-    "math": []
-  },
-  "others": {
-    "vote": []
-  },
   "users": [],
+  "database": {},
   "chats": {
     "2349058659656@s.whatsapp.net": {
       "badword": false,
@@ -172,9 +165,12 @@
       "antilinkgc": false
     }
   },
+  "game": {
+    "math": []
+  },
   "settings": {
     "2349058659656@s.whatsapp.net": {
-      "totalhit": 403,
+      "totalhit": 442,
       "totalError": 0,
       "online": false,
       "autosticker": false,
@@ -234,5 +230,9 @@
       }
     }
   },
-  "message": {}
+  "message": {},
+  "sticker": {},
+  "others": {
+    "vote": []
+  }
 }

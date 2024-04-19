@@ -17,6 +17,7 @@
     "license": "MIT",
     "dependencies": {
         "@adiwajshing/keyed-db": "^0.2.4",
+        "@ffmpeg-installer/ffmpeg": "^1.1.0",
         "@hapi/boom": "^10.0.1",
         "@vitalets/google-translate-api": "^9.2.0",
         "@whiskeysockets/baileys": "^6.6.0",
