@@ -1,9 +1,13 @@
 {
-  "users": [
-    "2348154012846@s.whatsapp.net",
-    "2349058659656@s.whatsapp.net"
-  ],
+  "sticker": {},
   "database": {},
+  "game": {
+    "math": []
+  },
+  "others": {
+    "vote": []
+  },
+  "users": [],
   "chats": {
     "2349058659656@s.whatsapp.net": {
       "badword": false,
@@ -148,14 +152,29 @@
       "anticontact": false,
       "antilink": false,
       "antilinkgc": false
+    },
+    "120363267243055167@g.us": {
+      "badword": false,
+      "antiforeignnum": false,
+      "antibot": false,
+      "antiviewonce": false,
+      "antivirtex": false,
+      "antimedia": false,
+      "antiimage": false,
+      "antivideo": false,
+      "antiaudio": false,
+      "antipoll": false,
+      "antisticker": false,
+      "antilocation": false,
+      "antidocument": false,
+      "anticontact": false,
+      "antilink": false,
+      "antilinkgc": false
     }
-  },
-  "game": {
-    "math": []
   },
   "settings": {
     "2349058659656@s.whatsapp.net": {
-      "totalhit": 229,
+      "totalhit": 403,
       "totalError": 0,
       "online": false,
       "autosticker": false,
@@ -214,12 +233,6 @@
         }
       }
     }
-
-
   },
-  "message": {},
-  "sticker": {},
-  "others": {
-    "vote": []
-  }
+  "message": {}
 }

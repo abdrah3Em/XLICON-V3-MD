@@ -672,7 +672,7 @@ async function startXliconBotInc() {
                       previewType: _0x4b0255(0x19e),
                       thumbnailUrl: "",
                       thumbnail: XeonWlcm,
-                      sourceUrl: "" + wagc,
+                      sourceUrl: wagc,
                     },
                   },
                 });
@@ -711,7 +711,7 @@ async function startXliconBotInc() {
                         previewType: _0x4b0255(0x19e),
                         thumbnailUrl: "",
                         thumbnail: XeonLft,
-                        sourceUrl: "" + wagc,
+                        sourceUrl: "",
                       },
                     },
                   });
@@ -812,7 +812,7 @@ async function startXliconBotInc() {
                       previewType: "PHOTO",
                       thumbnailUrl: "",
                       thumbnail: XeonWlcm,
-                      sourceUrl: "" + wagc,
+                      sourceUrl: "",
                     },
                   },
                 });
@@ -841,7 +841,7 @@ async function startXliconBotInc() {
                         previewType: _0x9c1122(0x19e),
                         thumbnailUrl: "",
                         thumbnail: XeonLft,
-                        sourceUrl: "" + wagc,
+                        sourceUrl: "",
                       },
                     },
                   });
