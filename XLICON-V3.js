@@ -2459,6 +2459,9 @@ click https://wa.me/${botNumber.split`@`[0]}`,
         break;
       case "autosticker":
       case "autostickergc":
+        if (!m.isGroup) return XeonStickGroup();
+        if (!isBotAdmins) return XliconStickBotAdmin();
+        if (!isAdmins && !XeonTheCreator) return XliconStickAdmin();
         if (args.length < 1)
           return replygcXlicon(`*_Example ${prefix + command} on/off_*`);
         if (q == "on") {
@@ -2823,7 +2826,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "antitoxic":
             {
               if (!m.isGroup) return XeonStickGroup();
-       
+              if (!isBotAdmins) return XliconStickBotAdmin();
               if (!XeonTheCreator) return XliconStickOwner();
               if (args.length < 1) return replygcXlicon("*_on/off?_*");
               if (args[0] === "on") {
@@ -2965,7 +2968,6 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "antisticker":
             {
               if (!m.isGroup) return XeonStickGroup();
-           
               if (!XeonTheCreator) return XliconStickOwner();
               if (args.length < 1) return replygcXlicon("*_on/off?_*");
               if (args[0] === "on") {
@@ -3264,7 +3266,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "kick":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator)return XliconStickOwner();
-            
+            if (!isBotAdmins) return XliconStickBotAdmin();
             let blockwww = m.mentionedJid[0]
               ? m.mentionedJid[0]
               : m.quoted
@@ -3508,7 +3510,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "add":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator) return XliconStickOwner();
-            
+            if (!isBotAdmins) return XliconStickBotAdmin();
             let blockwwww = m.quoted
               ? m.quoted.sender
               : text.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
@@ -3517,7 +3519,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
             break;
           case "promote":
             if (!m.isGroup) return XeonStickGroup();
-       if (!XeonTheCreator) return XliconStickOwner();
+            if (!XeonTheCreator) return XliconStickOwner();
             
             let blockwwwww = m.mentionedJid[0]
               ? m.mentionedJid[0]
@@ -3533,7 +3535,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
             break;
           case "demote":
             if (!m.isGroup) return XeonStickGroup();
-       if (!XeonTheCreator) return XliconStickOwner();
+            if (!XeonTheCreator) return XliconStickOwner();
             
             let blockwwwwwa = m.mentionedJid[0]
               ? m.mentionedJid[0]
@@ -3550,9 +3552,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "setnamegc":
           case "setsubject":
             if (!m.isGroup) return XeonStickGroup();
-            if (!XeonTheCreator)
-              return XliconStickAdmin();
-            
+            if (!XeonTheCreator) return XliconStickOwner();
             if (!text) return replygcXlicon("*_Text ?_*");
             await XliconBotInc.groupUpdateSubject(m.chat, text);
             replygcXlicon(mess.done);
@@ -3622,7 +3622,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
             {
               if (!m.isGroup) return XeonStickGroup();
               if (!XeonTheCreator) return XliconStickOwner();
-              
+              if (!isBotAdmins) return XliconStickBotAdmin();
               await XliconBotInc.removeProfilePicture(from);
             }
             break;
@@ -3637,7 +3637,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "setdesc":
           case "setdesk":
             if (!m.isGroup) return XeonStickGroup();
-       if (!XeonTheCreator) return XliconStickOwner();
+            if (!XeonTheCreator) return XliconStickOwner();
             
             if (!text) return replygcXlicon("*_Text ?_*");
             await XliconBotInc.groupUpdateDescription(m.chat, text);
@@ -3651,6 +3651,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "setgcpp":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator) return XliconStickOwner();
+            if (!isBotAdmins) return XliconStickBotAdmin();
             if (!quoted)
               return replygcXlicon(
                 `Send/Reply Image With Caption ${prefix + command}`
@@ -3746,8 +3747,8 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "group":
           case "grup":
             if (!m.isGroup) return XeonStickGroup();
-       if (!XeonTheCreator) return XliconStickOwner();
-            
+            if (!XeonTheCreator) return XliconStickOwner();
+            if (!isBotAdmins) return XliconStickBotAdmin();
             if (args[0] === "close") {
               await XliconBotInc.groupSettingUpdate(m.chat, "announcement").then(
                 (res) => replygcXlicon(`Success Closing Group`)
@@ -3766,6 +3767,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "editinfo":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator) return XliconStickOwner();
+            if (!isBotAdmins) return XliconStickBotAdmin();
             if (args[0] === "open") {
               await XliconBotInc.groupSettingUpdate(m.chat, "unlocked").then(
                 (res) => replygcXlicon(`Successfully Opened Edit Group Info`)
@@ -3784,9 +3786,9 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "gclink":
           case "grouplink":
           case "gruplink":
-            if (!m.isGroup) return XeonStickGroup();
-       if (!XeonTheCreator) return XliconStickOwner();
-            
+          if (!m.isGroup) return XeonStickGroup();
+          if (!XeonTheCreator) return XliconStickOwner();
+          if (!isBotAdmins) return XliconStickBotAdmin();
             let response = await XliconBotInc.groupInviteCode(m.chat);
             XliconBotInc.sendText(
               m.chat,
@@ -4012,7 +4014,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "resetlink":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator)return XliconStickAdmin();
-            
+            if (!isBotAdmins) return XliconStickBotAdmin();
             await XliconBotInc.groupRevokeInvite(m.chat).then((res) => {
               replygcXlicon(`Reset Success`);
             });
@@ -5307,6 +5309,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
             {
               if (!m.isGroup) return XeonStickGroup();
               if (!XeonTheCreator) return XliconStickOwner();
+              if (!isBotAdmins) return XliconStickBotAdmin();
               if (!text) return replygcXlicon("Enter the value enable/disable");
               if (args[0] === "on") {
                 await XliconBotInc.sendMessage(m.chat, {
@@ -10015,6 +10018,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
             break;
           case "setcmd":
             {
+              if (!XeonTheCreator) return XliconStickOwner();
               if (!m.quoted) return replygcXlicon("Reply Message!");
               if (!m.quoted.fileSha256) return replygcXlicon("SHA256 Hash Missing");
               if (!text) return replygcXlicon(`For What Command?`);
@@ -10960,6 +10964,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "delete":
           case "deleteimage":
             {
+              if (!XeonTheCreator) return XliconStickOwner();
               if (!isMedia) return replygcXlicon("Where Is The Image");
               let media = await XliconBotInc.downloadAndSaveMediaMessage(quoted);
               let anu = await TelegraPh(media);
