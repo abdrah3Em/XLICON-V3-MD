@@ -1455,7 +1455,7 @@ module.exports = XliconBotInc = async (XliconBotInc, m, chatUpdate, store) => {
     }
     if (db.data.chats[m.chat].antilink) {
       if (budy.match("http") && budy.match("https")) {
-        bvl = `\`\`\`「 Link Detected 」\`\`\`\n\n*_Admin has sent a link, admin is free to send any link😇_*`;
+        bvl = `\`\`\`「 Link Detected 」\`\`\`\n\n*_Admin has sent a link, admin is free to send any link_*`;
         if (isAdmins) return replygcXlicon(bvl);
         if (m.key.fromMe) return replygcXlicon(bvl);
         if (XeonTheCreator) return replygcXlicon(bvl);
@@ -3520,7 +3520,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "promote":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator) return XliconStickOwner();
-            
+            if (!isBotAdmins) return XliconStickBotAdmin();
             let blockwwwww = m.mentionedJid[0]
               ? m.mentionedJid[0]
               : m.quoted
@@ -3536,7 +3536,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "demote":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator) return XliconStickOwner();
-            
+            if (!isBotAdmins) return XliconStickBotAdmin();
             let blockwwwwwa = m.mentionedJid[0]
               ? m.mentionedJid[0]
               : m.quoted
@@ -3553,6 +3553,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "setsubject":
             if (!m.isGroup) return XeonStickGroup();
             if (!XeonTheCreator) return XliconStickOwner();
+            if (!isBotAdmins) return XliconStickBotAdmin();
             if (!text) return replygcXlicon("*_Text ?_*");
             await XliconBotInc.groupUpdateSubject(m.chat, text);
             replygcXlicon(mess.done);
@@ -6605,6 +6606,87 @@ click https://wa.me/${botNumber.split`@`[0]}`,
               }
             );
             break;
+          
+
+            //todo efit this
+          case "movie":
+              {
+              if (!text)return replygcXlicon(
+                  `*This command generates movies from text prompts*\n\n*𝙴xample usage*\n*${
+                    prefix + command
+                  } One piece*\n*${prefix + command} Oppenheimer*`
+                );
+              try {
+              replygcXlicon("*Please wait, generating video...*");
+              let movie = await axios.get(
+              `http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`
+              );
+              let moviet = movie.data.imdbID;
+              const mendpoint = `https://vidsrc.to/embed/movie/${moviet}`
+              console.log(mendpoint);
+              if (mendpoint === `https://vidsrc.to/embed/movie/undefined`) { 
+                replygcXlicon(
+                  "*video generation failed Please ensure you typed the movie correctly*"
+                );
+              }else  {
+                  await XliconBotInc.sendMessage(
+                    m.chat,
+                     {      
+                       text: mendpoint,
+                     },
+                     { quoted: m }
+                   );
+                }
+              }catch{
+                      replygcXlicon(
+                        "*Oops! Something went wrong while generating video. Please try again later.*"
+                      );
+                    }
+              }
+              break;
+         
+
+          case "series":
+                {
+                if (!text)return replygcXlicon(
+                    `*This command generates series from text prompts*\n\n*𝙴xample usage*\n*${
+                      prefix + command
+                    } Shogun *\n*${prefix + command} copy cat killer*`
+                  );
+                try {
+                replygcXlicon("*Please wait, generating video...*");
+                let series = await axios.get(
+                `http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`
+                );
+                let seriest = series.data.imdbID;
+                const sendpoint = `https://vidsrc.to/embed/tv/${seriest}`
+                console.log(sendpoint);
+                if (sendpoint === `https://vidsrc.to/embed/tv/undefined`) { 
+                  replygcXlicon(
+                    "*video generation failed Please ensure you typed the series correctly*"
+                  );
+                }else  {
+                    await XliconBotInc.sendMessage(
+                      m.chat,
+                       {      
+                         text: sendpoint,
+                       },
+                       { quoted: m }
+                     );
+                  }
+                }catch{
+                        replygcXlicon(
+                          "*Oops! Something went wrong while generating series. Please try again later.*"
+                        );
+                      }
+                }
+                break;
+
+
+
+
+
+         
           case "ebinary":
             {
               if (!q)
@@ -8986,6 +9068,65 @@ click https://wa.me/${botNumber.split`@`[0]}`,
               );
             }
             break;
+
+
+            case "xgen":
+              {
+                if (!m.isGroup) return XliconStickGroup();
+                if (!AntiNsfw) return replygcXlicon(mess.nsfw);
+                if (!text)
+                  return replygcXlicon(
+                    `*This command generates nsfw images from text prompts*\n\n*𝙴xample usage*\n*${
+                      prefix + command
+                    } Beautiful anime girl*\n*${prefix + command} girl in pink dress*`
+                  );
+                try {
+                  replygcXlicon("*Please wait, generating image...*");
+                  const endpoint = `https://api.maher-zubair.tech/nsfw/x-gen?q=${text}`;
+                  const response = await fetch(endpoint);
+                  if (response.ok) {
+                    const imageBuffer = await response.buffer();
+                    await XliconBotInc.sendMessage(
+                      m.chat,
+                      { image: imageBuffer },
+                      { quoted: m }
+                    );
+                  } else {
+                    throw "*Image generation failed*";
+                  }
+                } catch {
+                  replygcXlicon(
+                    "*Oops! Something went wrong while generating images. Please try again later.*"
+                  );
+                }
+              }
+              break;
+  
+          case "porno":
+              if (!text) return replygcXlicon(`Add text`);
+              await XliconStickWait();
+              let porsn = await axios.get(
+                `https://api.maher-zubair.tech/nsfw/xnxx-search?q=${text}`
+              );
+              let pornd = porsn.result[0];
+              XliconBotInc.sendMessage(
+                m.chat,
+                {
+                  caption: pornd.title,
+                  externalAdReply: {
+                    title: pornd.title,
+                    body: botname,
+                    thumbnail: pornd.thumbnail,
+                    sourceUrl: websitex,
+                    mediaType: 2,
+                    mediaUrl: pornd.link,
+                  },
+                },
+                {
+                  quoted: m,
+                }
+              );
+              break;  
           case "trap":
             if (!m.isGroup) return XeonStickGroup();
             if (!AntiNsfw) return replygcXlicon(mess.nsfw);
@@ -10561,7 +10702,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
               }
             }
             break;
-          case "itunes":
+        case "itunes":
             {
               if (!text) return replygcXlicon("Please provide a song name");
               try {
