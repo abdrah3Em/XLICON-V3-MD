@@ -9052,7 +9052,7 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "hentai":
           case "hentaivideo":
             {
-              if (!m.isGroup) return XliconStickGroup();
+              if (!m.isGroup) return XeonStickGroup();
               if (!AntiNsfw) return replygcXlicon(mess.nsfw);
               await XliconStickWait();
               const { hentai } = require("./lib/scraper.js");
@@ -9069,10 +9069,9 @@ click https://wa.me/${botNumber.split`@`[0]}`,
             }
             break;
 
-
             case "xgen":
               {
-                if (!m.isGroup) return XliconStickGroup();
+                if (!m.isGroup) return XeonStickGroup();
                 if (!AntiNsfw) return replygcXlicon(mess.nsfw);
                 if (!text)
                   return replygcXlicon(
@@ -9105,22 +9104,27 @@ click https://wa.me/${botNumber.split`@`[0]}`,
           case "porno":
               if (!text) return replygcXlicon(`Add text`);
               await XliconStickWait();
-              let porsn = await axios.get(
+              let porns = await axios.get(
                 `https://api.maher-zubair.tech/nsfw/xnxx-search?q=${text}`
               );
-              let pornd = porsn.result[0];
+              function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+              }
+              num = getRandomInt(12)
+              let porn = porns.data.result[num];
+              let pornurl = await axios.get(
+                `https://api.maher-zubair.tech/nsfw/xnxx-download?url=${porn.link}`
+              );
+             
+              let pornvid = pornurl.data.result.link[1].link;
+              let por = await fetch(pornvid);
+              const arrayBuffer = await por.arrayBuffer();
+              const videoBuffer = Buffer.from(arrayBuffer);
               XliconBotInc.sendMessage(
                 m.chat,
                 {
-                  caption: pornd.title,
-                  externalAdReply: {
-                    title: pornd.title,
-                    body: botname,
-                    thumbnail: pornd.thumbnail,
-                    sourceUrl: websitex,
-                    mediaType: 2,
-                    mediaUrl: pornd.link,
-                  },
+                 video: videoBuffer,
+                 caption:  `${porn.title}`
                 },
                 {
                   quoted: m,
